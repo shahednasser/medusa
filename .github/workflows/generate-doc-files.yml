@@ -48,9 +48,9 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           
-          if [[ -n $(git status --porcelain) ]]; then
+          if [[ -n $(git status --porcelain www/apps/book/generated www/apps/book/public www/apps/resources/generated) ]]; then
             echo "Ran prep and generated files, committing and pushing..."
-            git add .
+            git add www/apps/book/generated www/apps/book/public www/apps/resources/generated
             git commit -m "chore: run yarn prep automatically"
             git push origin ${{ github.event.pull_request.head.ref }}
           else
