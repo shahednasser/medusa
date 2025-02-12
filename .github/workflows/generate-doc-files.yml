@@ -1,0 +1,58 @@
+name: Generate Documentation Prep Files
+on:
+  pull_request:
+    paths:
+      - www/apps/**
+
+jobs:
+  check_files:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write  # Required to push changes
+    steps:
+      - name: Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.11.0
+        with:
+          access_token: ${{ github.token }}
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2  # Ensures we can check the diff
+          ref: ${{ github.event.pull_request.head.ref }}  # Checkout PR branch
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+          cache: "yarn"
+
+      - name: Install Workspace dependencies
+        working-directory: www
+        run: yarn install
+
+      - name: Build packages
+        working-directory: www
+        run: yarn build:packages
+
+      - name: Run yarn prep in book
+        working-directory: www/apps/book
+        run: yarn prep
+
+      - name: Run yarn prep in resources
+        working-directory: www/apps/resources
+        run: yarn prep
+
+      - name: Commit and push changes (if any)
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          
+          if [[ -n $(git status --porcelain) ]]; then
+            echo "Ran prep and generated files, committing and pushing..."
+            git add .
+            git commit -m "chore: run yarn prep automatically"
+            git push origin ${{ github.event.pull_request.head.ref }}
+          else
+            echo "No generated files, skipping commit."
+          fi
