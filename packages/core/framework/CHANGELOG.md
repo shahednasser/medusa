@@ -1,5 +1,19 @@
 # @medusajs/framework
 
+## 2.5.1
+
+### Patch Changes
+
+- [#11414](https://github.com/medusajs/medusa/pull/11414) [`47edd01deec79b394552cea349f1e41b7b88723b`](https://github.com/medusajs/medusa/commit/47edd01deec79b394552cea349f1e41b7b88723b) Thanks [@kasperkristensen](https://github.com/kasperkristensen)! - fix(admin-vite-plugin,admin-bundler,ui,icons,dashboard,framework,types): Update Vite dependencies
+
+- Updated dependencies [[`22276648ad0aef12206464b555efdce97e316bb4`](https://github.com/medusajs/medusa/commit/22276648ad0aef12206464b555efdce97e316bb4), [`d6c03ee5427457237e3c739545a8816cc3a3198e`](https://github.com/medusajs/medusa/commit/d6c03ee5427457237e3c739545a8816cc3a3198e), [`47edd01deec79b394552cea349f1e41b7b88723b`](https://github.com/medusajs/medusa/commit/47edd01deec79b394552cea349f1e41b7b88723b)]:
+  - @medusajs/orchestration@2.5.1
+  - @medusajs/modules-sdk@2.5.1
+  - @medusajs/types@2.5.1
+  - @medusajs/utils@2.5.1
+  - @medusajs/workflows-sdk@2.5.1
+  - @medusajs/telemetry@2.5.1
+
 ## 2.5.0
 
 ### Patch Changes

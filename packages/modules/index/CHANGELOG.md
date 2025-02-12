@@ -1,5 +1,11 @@
 # @medusajs/index
 
+## 2.5.1
+
+### Patch Changes
+
+- [#11348](https://github.com/medusajs/medusa/pull/11348) [`22276648ad0aef12206464b555efdce97e316bb4`](https://github.com/medusajs/medusa/commit/22276648ad0aef12206464b555efdce97e316bb4) Thanks [@carlos-r-l-rodrigues](https://github.com/carlos-r-l-rodrigues)! - feat: query.index
+
 ## 2.5.0
 
 ### Patch Changes
